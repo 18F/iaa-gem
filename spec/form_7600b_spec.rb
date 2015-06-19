@@ -263,7 +263,7 @@ describe IAA::Form7600B do
   end
 
   it 'sets gt_and_c_number' do
-    pending("troubleshooting")
+    #pending("troubleshooting")
     form = IAA::Form7600B.new
     test_text = "lorem"
     form.gt_and_c_number = test_text
