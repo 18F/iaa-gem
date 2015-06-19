@@ -9,7 +9,7 @@ Dependencies (other than standard Ruby/bundler):
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'iaa', github: '18F/iaa'
+gem 'iaa', github: '18F/iaa-gem'
 ```
 
 And then execute:
@@ -48,7 +48,7 @@ See `lib/iaa.rb` for all getter and setter methods.
 
 ### mappings.json
 
-This repo provides a JSON file (`lib/mappings/7600A.json`) of all form fields including their types and possible values (e.g. for radio buttons and checkboxes). This could be used map objects in other languages to the IAA Form 7600A.
+This repo provides a JSON file (`lib/mappings/7600A.json`) of all form fields including their types and possible values (e.g. for radio buttons and checkboxes). This could be used to map objects in other languages to the IAA Form 7600A.
 
 ## Development
 
@@ -58,5 +58,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/18F/iaa.
+Bug reports and pull requests are welcome on GitHub at https://github.com/18F/iaa-gem.
 

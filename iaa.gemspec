@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alan.delevie@gsa.gov"]
   spec.summary       = %q{Programatically fills PDF to produce Inter-Agency Agreements (IAAs)}
   spec.description   = %q{Helps you create IAAs}
-  spec.homepage      = "https://18f.gsa.gov"
+  spec.homepage      = "https://github.com/18f/iaa-gem"
   spec.license       = "See LICENSE.md"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
