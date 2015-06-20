@@ -5,42 +5,47 @@ require 'pry'
 
 module IAA
   class Form7600A
-    def initialize(pdf_path: nil)
+    def initialize(pdf_path: nil, pdftk_path: nil)
       @fields = JSON.parse(File.read('lib/mappings/7600A.json'))
-      @pdftk = PdfForms.new('/usr/local/bin/pdftk')
+      if pdftk_path
+        @pdftk = PdfForms.new(pdftk_path)
+      else
+        path = `which pdftk`.strip
+        @pdftk = PdfForms.new(path)
+      end
       @save_filename = nil
       @fill_values = {}
-      
+
       if pdf_path
         @pdf_path = pdf_path
         fields = @pdftk.get_fields(pdf_path)
         fields.each do |field|
           value = field.value rescue nil
           set_attr(field.name, value)
-        end        
+        end
       else
         @pdf_path = 'lib/pdfs/7600A.pdf'
       end
     end
-    
+
     def filename
       @save_filename
     end
-    
+
     def set_attr(field, value)
       @fill_values[field] = value
     end
-    
+
     def get_attr(field)
       @fill_values[field]
-    end    
-    
+    end
+
     def save(save_path='~')
       filename = "#{save_path}/7600A_#{Time.now.to_i}.pdf"
       @pdftk.fill_form @pdf_path, filename, @fill_values
       @filename = filename
     end
-    
+
     def servicing_agency_tracking_number=(new_servicing_agency_tracking_number)
       set_attr("Servicing Agency Agreement Tracking Number (Optional)", new_servicing_agency_tracking_number)
     end
@@ -424,6 +429,6 @@ module IAA
     def servicing_agency_approval_date
       get_attr("Servicing Agency Approval Date")
     end
-    
+
   end
 end
