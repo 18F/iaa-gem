@@ -10,7 +10,7 @@ module IAA
       if pdftk_path
         @pdftk = PdfForms.new(pdftk_path)
       else
-        path = `which pdftk`.strip
+        path = Cliver.detect('pdftk')
         @pdftk = PdfForms.new(path)
       end
       @save_filename = nil
