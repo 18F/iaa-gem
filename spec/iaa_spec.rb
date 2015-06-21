@@ -31,7 +31,6 @@ describe IAA do
     method_names.each do |method_name|
       expect(form).to(respond_to("#{method_name}="))
     end
-
   end
 
   it 'saves' do
