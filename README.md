@@ -54,6 +54,12 @@ See `lib/form_7600a.rb` and `lib/form_7600b` for all getter and setter methods.
 
 This repo provides a JSON file for each form (`lib/mappings/7600A.json` and `lib/mappings/7600B.json`) of all form fields including their types and possible values (e.g. for radio buttons and checkboxes). This could be used to map objects in other languages to the IAA Form 7600A.
 
+## Docker Compose Usage
+
+1. Make sure that [Docker Compose](https://docs.docker.com/compose/install/) is installed.
+2. Navigate to iaa-gem directory and run `docker-compose build`. 
+3. Run `docker-compose run iaa`.
+
 ## Caveats
 
 Currently, the following fields cannot be set:
