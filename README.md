@@ -11,7 +11,13 @@ Dependencies (other than standard Ruby/bundler):
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'iaa', github: '18F/iaa-gem'
+gem 'iaa'
+```
+
+To use the latest and greatest:
+
+```ruby
+gem 'iaa', github: '18F/iaa-gem', branch: 'master'
 ```
 
 And then execute:
@@ -59,7 +65,7 @@ This repo provides a JSON file for each form (`lib/mappings/7600A.json` and `lib
 ## Docker Compose Usage
 
 1. Make sure that [Docker Compose](https://docs.docker.com/compose/install/) is installed.
-2. Navigate to iaa-gem directory and run `docker-compose build`. 
+2. Navigate to iaa-gem directory and run `docker-compose build`.
 3. Run `docker-compose run iaa`.
 
 ## Caveats
