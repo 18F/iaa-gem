@@ -58,7 +58,7 @@ module IAA
       @fill_values[field]
     end
 
-    def save(save_path='~')
+    def save(save_path='tmp')
       filename = "#{save_path}/7600B_#{Time.now.to_i}.pdf"
       @pdftk.fill_form @pdf_path, filename, @fill_values
       @filename = filename
