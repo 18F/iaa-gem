@@ -6,7 +6,7 @@ require 'iaa/version'
 Gem::Specification.new do |spec|
   spec.name          = "iaa"
   spec.version       = IAA::VERSION
-  spec.authors       = ["Alan deLevie"]
+  spec.authors       = ["Alan deLevie", "V. David Zvenyach"]
   spec.email         = ["alan.delevie@gsa.gov"]
   spec.summary       = %q{Programatically fills PDF to produce Inter-Agency Agreements (IAAs)}
   spec.description   = %q{Helps you create IAAs}
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata['allowed_push_host'] = "https://rubygems.org"
   else
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
