@@ -20,7 +20,9 @@ $ bundle
 
 ## Usage
 
-### Open and read an existing IAA Form 7600A
+This gem makes available two classes, `IAA::Form7600A` and `IAA::Form7600B`.
+
+### Open and read an existing IAA Form 7600A or 7600B
 
 ```ruby
 form = IAA::Form7600A.new(pdf_path: 'path/to/7600A.pdf')
@@ -29,14 +31,14 @@ form.end_date #> "06-20-2015"
 # ... etc
 ```
 
-### Edit and save an IAA Form 7600A
+### Edit and save an IAA Form 7600A or 7600B
 
 ```ruby
 form.start_date = "05-21-2015"
 form.save('/path/to/save/destination.pdf')
 ```
 
-### Start from a blank IAA Form 7600A
+### Start from a blank IAA Form 7600A or 7600B
 
 ```ruby
 form2 = IAA::Form7600A.new
@@ -44,19 +46,28 @@ form2.start_date = "07-07-2016"
 form2.save('/path/to/save/destination2.pdf')
 ```
 
-See `lib/iaa.rb` for all getter and setter methods.
+See `lib/form_7600a.rb` and `lib/form_7600b` for all getter and setter methods.
 
 ### mappings.json
 
-This repo provides a JSON file (`lib/mappings/7600A.json`) of all form fields including their types and possible values (e.g. for radio buttons and checkboxes). This could be used to map objects in other languages to the IAA Form 7600A.
+This repo provides a JSON file for each form (`lib/mappings/7600A.json` and `lib/mappings/7600B.json`) of all form fields including their types and possible values (e.g. for radio buttons and checkboxes). This could be used to map objects in other languages to the IAA Form 7600A.
 
 ## Caveats
 
 Currently, the following fields cannot be set:
 
+### Form 7600A
+
 - gt_and_c_number
 - general_explanation_overhead_fees_and_charges
 - number_of_days_this_iaa_may_be_terminated
+
+### Form 7600B
+
+- gt_and_c_number
+- requesting_agency_a
+- servicing_agency_a
+- overhead_fees_and_charges
 
 See https://github.com/18F/iaa-gem/issues/6.
 
