@@ -82,6 +82,7 @@
   },
   {
     "name": "Original Line Funding",
+    "attribute_name": "original_line_funding",
     "type": "Text",
     "value": null,
     "options": null
@@ -305,7 +306,7 @@
   },
   {
     "name": "GT&amp;C #",
-    "attribute_name": "get_and_c_number",
+    "attribute_name": "gt_and_c_number",
     "type": "Text",
     "value": null,
     "options": null
@@ -606,7 +607,7 @@
   },
   {
     "name": "Overhead Fees &amp; Charges",
-    "attribute_name": "overhead_feeds_and_charges",
+    "attribute_name": "overhead_fees_and_charges",
     "type": "Text",
     "value": null,
     "options": null
@@ -745,7 +746,7 @@
   },
   {
     "name": "Attachments Key project and\/or Acquisition Milestones",
-    "attribute_name": "key_project_and_or_acquisition_milestones_attachments?",
+    "attribute_name": "has_key_project_and_or_acquisition_milestones_attachments",
     "type": "Button",
     "value": null,
     "options": [
@@ -756,14 +757,13 @@
   {
     "name": "Key project and\/or acquisition milestones",
     "attribute_name": "key_project_and_or_acquisition_milestones",
-    "attribute_name": "",
     "type": "Text",
     "value": null,
     "options": null
   },
   {
     "name": "Attachments Other attachments",
-    "attribute_name": "other_attachments?",
+    "attribute_name": "has_other_attachments",
     "type": "Button",
     "value": "Yes",
     "options": [
