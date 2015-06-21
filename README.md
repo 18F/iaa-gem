@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/18F/iaa-gem.svg)](https://travis-ci.org/18F/iaa-gem)
+
 # IAA
 
 ## Installation
