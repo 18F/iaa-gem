@@ -1,0 +1,4 @@
+iaa:
+  build: .
+  volumes: 
+  - .:/iaa-gem
