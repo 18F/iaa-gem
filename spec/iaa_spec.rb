@@ -2,6 +2,10 @@ require 'spec_helper'
 require 'json'
 
 describe IAA do
+  after(:all) do
+    FileUtils.rm_rf Dir.glob("spec/output/*")
+  end
+
   it 'has a version number' do
     expect(IAA::VERSION).not_to be nil
   end
