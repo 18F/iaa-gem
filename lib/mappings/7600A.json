@@ -228,7 +228,7 @@
   },
   {
     "name": "General Explanation Overhead Fees &amp; Charges",
-    "attribute_name": "generation_explanation_overhead_fees_and_charges",
+    "attribute_name": "general_explanation_overhead_fees_and_charges",
     "options": null,
     "type": "Text",
     "value": "The estimated agreement amount is based on GSA's actual costs of providing the services under this IAA.  Reimbursement of GSA's actual costs is described further in the Statement of Work.&#13;"

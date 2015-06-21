@@ -18,7 +18,7 @@ module IAA
 
       if pdf_path
         @pdf_path = pdf_path
-        fields = @pdftk.get_fields(pdf_path)
+        fields = @pdftk.get_fields(@pdf_path)
         fields.each do |field|
           value = field.value rescue nil
           set_attr(field.name, value)
@@ -26,6 +26,25 @@ module IAA
       else
         @pdf_path = 'lib/pdfs/7600A.pdf'
       end
+    end
+
+    def read_fields
+      @pdftk.get_fields(@pdf_path).map do |field|
+        {
+          "name" => field.name,
+          "options" => field.options,
+          "type" => field.type,
+          "value" => field.value
+        }
+      end
+    end
+
+    def read_field(field_name)
+      read_fields.find {|f| f["name"] == field_name}["value"]
+    end
+
+    def fill_attributes
+      @fill_values
     end
 
     def filename
@@ -254,11 +273,11 @@ module IAA
       get_attr("Radio Button8")
     end
 
-    def generation_explanation_overhead_fees_and_charges=(new_generation_explanation_overhead_fees_and_charges)
-      set_attr("General Explanation Overhead Fees &amp; Charges", new_generation_explanation_overhead_fees_and_charges)
+    def general_explanation_overhead_fees_and_charges=(new_general_explanation_overhead_fees_and_charges)
+      set_attr("General Explanation Overhead Fees &amp; Charges", new_general_explanation_overhead_fees_and_charges)
     end
 
-    def generation_explanation_overhead_fees_and_charges
+    def general_explanation_overhead_fees_and_charges
       get_attr("General Explanation Overhead Fees &amp; Charges")
     end
 

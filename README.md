@@ -50,6 +50,16 @@ See `lib/iaa.rb` for all getter and setter methods.
 
 This repo provides a JSON file (`lib/mappings/7600A.json`) of all form fields including their types and possible values (e.g. for radio buttons and checkboxes). This could be used to map objects in other languages to the IAA Form 7600A.
 
+## Caveats
+
+Currently, the following fields cannot be set:
+
+- gt_and_c_number
+- general_explanation_overhead_fees_and_charges
+- number_of_days_this_iaa_may_be_terminated
+
+See https://github.com/18F/iaa-gem/issues/6.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -59,4 +69,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/18F/iaa-gem.
-
