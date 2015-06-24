@@ -8,9 +8,10 @@ module IAA
     def init_pdftk(pdftk_path)
       PdfForms.new(pdftk_path || Cliver.detect('pdftk'))
     end
-
+    
     def get_mapper_fields(path)
-      JSON.parse(File.read(path))
+      full_path = File.expand_path(File.join('..', '..', path), __FILE__)
+      JSON.parse(File.read(full_path))
     end
 
     def load_fields_from_pdf!(pdf_path, pdftk, form_object)
