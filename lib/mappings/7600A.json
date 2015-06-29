@@ -364,7 +364,7 @@
     "attribute_name": "servicing_agency_email_address",
     "options": null,
     "type": "Text",
-    "value": "phaedra.chrousos@gsa.gov"
+    "value": ""
   },
   {
     "name": "Requesting Agency Approval Date",
