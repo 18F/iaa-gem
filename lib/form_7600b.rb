@@ -341,11 +341,11 @@ module IAA
     end
 
     def gt_and_c_number=(new_gt_and_c_number)
-      set_attr("GT&amp;C #", new_gt_and_c_number)
+      set_attr("gt_and_c", new_gt_and_c_number)
     end
 
     def gt_and_c_number
-      get_attr("GT&amp;C #")
+      get_attr("gt_and_c")
     end
 
     def order_number=(new_order_number)

@@ -305,7 +305,7 @@
     "options": null
   },
   {
-    "name": "GT&amp;C #",
+    "name": "gt_and_c",
     "attribute_name": "gt_and_c_number",
     "type": "Text",
     "value": null,
@@ -1014,7 +1014,7 @@
     "name": "Funding Officials Servicing Agency Name",
     "attribute_name": "funding_officials_servicing_agency_name",
     "type": "Text",
-    "value": "Robin Short",
+    "value": "",
     "options": null
   },
   {
