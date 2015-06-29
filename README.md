@@ -56,11 +56,27 @@ form2.start_date = "07-07-2016"
 form.save('/path/to/save/destination')
 ```
 
-See `lib/form_7600a.rb` and `lib/form_7600b` for all getter and setter methods.
+See `lib/mappings/7600A.json` and `lib/mappings/7600A.json` for all getter and setter methods. The field in these files called `"attribute_name"` corresponds to all getter and setter method names. For example in `lib/mappings/7600A.json`, we have:
 
-### mappings.json
+```json
+// ...
+  {
+    "name": "Start Date",
+    "attribute_name": "start_date",
+    "options": null,
+    "type": "Text",
+    "value": "FILL IN"
+  },
+// ...
+```
 
-This repo provides a JSON file for each form (`lib/mappings/7600A.json` and `lib/mappings/7600B.json`) of all form fields including their types and possible values (e.g. for radio buttons and checkboxes). This could be used to map objects in other languages to the IAA Form 7600A.
+This means instances of `IAA::Form7600A` have the methdods `#start_date` and `#start_date=`. All of the methods are created during `::initialize` through some metaprogramming. Think of the JSON files in the `mappings` folder as the canonical source of method names.
+
+You could also use these JSON files to create IAA form fillers in other languages.
+
+### PDFs
+
+The PDFs in `lib/pdfs` have been modified somewhat from their originals. Visually, nothing has changed, but a few of the underlying form field names have been changed. For example, one field, "GT & C #" caused a lot of trouble because of that pesky ampersand. So, the field value in the PDF was changed to "gt_and_c_number".
 
 ## Docker Compose Usage
 
@@ -68,24 +84,7 @@ This repo provides a JSON file for each form (`lib/mappings/7600A.json` and `lib
 2. Navigate to iaa-gem directory and run `docker-compose build`.
 3. Run `docker-compose run iaa`.
 
-## Caveats
 
-Currently, the following fields cannot be set:
-
-### Form 7600A
-
-- gt_and_c_number
-- general_explanation_overhead_fees_and_charges
-- number_of_days_this_iaa_may_be_terminated
-
-### Form 7600B
-
-- gt_and_c_number
-- requesting_agency_a
-- servicing_agency_a
-- overhead_fees_and_charges
-
-See https://github.com/18F/iaa-gem/issues/6.
 
 ## Development
 
