@@ -144,14 +144,14 @@
     "value": null
   },
   {
-    "name": "GT&amp;C #",
+    "name": "gt_and_c_number",
     "attribute_name": "gt_and_c_number",
     "options": null,
     "type": "Text",
     "value": null
   },
   {
-    "name": "Mod #",
+    "name": "mod_number",
     "attribute_name": "mod_number",
     "options": null,
     "type": "Text",
@@ -221,7 +221,7 @@
     "value": "1"
   },
   {
-    "name": "General Explanation Overhead Fees &amp; Charges",
+    "name": "general_explanation_overhead_fees_and_charges",
     "attribute_name": "general_explanation_overhead_fees_and_charges",
     "options": null,
     "type": "Text",

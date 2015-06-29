@@ -352,7 +352,10 @@
     "attribute_name": "requesting_agency_sp",
     "type": "Text",
     "value": null,
-    "options": null
+    "options": null,
+    "validations": [
+      {"max_length": 2}
+    ]
   },
   {
     "name": "Requesting Agency ATA",
@@ -600,7 +603,7 @@
     "options": null
   },
   {
-    "name": "Overhead Fees &amp; Charges",
+    "name": "overhead_fees_and_charges",
     "attribute_name": "overhead_fees_and_charges",
     "type": "Text",
     "value": null,
