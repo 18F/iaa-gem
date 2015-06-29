@@ -341,27 +341,27 @@ module IAA
     end
 
     def gt_and_c_number=(new_gt_and_c_number)
-      set_attr("gt_and_c", new_gt_and_c_number)
+      set_attr("gt_and_c_number1", new_gt_and_c_number)
     end
 
     def gt_and_c_number
-      get_attr("gt_and_c")
+      get_attr("gt_and_c_number1")
     end
 
     def order_number=(new_order_number)
-      set_attr("Order #", new_order_number)
+      set_attr("order_number1", new_order_number)
     end
 
     def order_number
-      get_attr("Order #")
+      get_attr("order_number1")
     end
 
     def mod_number=(new_mod_number)
-      set_attr("Mod #", new_mod_number)
+      set_attr("mod_number1", new_mod_number)
     end
 
     def mod_number
-      get_attr("Mod #")
+      get_attr("mod_number1")
     end
 
     def tracking_number=(new_tracking_number)

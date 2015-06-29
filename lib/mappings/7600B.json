@@ -305,21 +305,21 @@
     "options": null
   },
   {
-    "name": "gt_and_c",
+    "name": "gt_and_c_number0",
     "attribute_name": "gt_and_c_number",
     "type": "Text",
     "value": null,
     "options": null
   },
   {
-    "name": "Order #",
+    "name": "order_number0",
     "attribute_name": "order_number",
     "type": "Text",
     "value": null,
     "options": null
   },
   {
-    "name": "Mod #",
+    "name": "mod_number0",
     "attribute_name": "mod_number",
     "type": "Text",
     "value": null,
