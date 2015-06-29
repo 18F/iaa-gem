@@ -1,11 +1,5 @@
 [
   {
-    "name": "RESET FORM",
-    "type": "Button",
-    "value": null,
-    "options": null
-  },
-  {
     "name": "Requesting Agency Office Name",
     "attribute_name": "requesting_agency_office_name",
     "type": "Text",
@@ -305,21 +299,21 @@
     "options": null
   },
   {
-    "name": "gt_and_c_number0",
+    "name": "gt_and_c_number1",
     "attribute_name": "gt_and_c_number",
     "type": "Text",
     "value": null,
     "options": null
   },
   {
-    "name": "order_number0",
+    "name": "order_number1",
     "attribute_name": "order_number",
     "type": "Text",
     "value": null,
     "options": null
   },
   {
-    "name": "mod_number0",
+    "name": "mod_number1",
     "attribute_name": "mod_number",
     "type": "Text",
     "value": null,

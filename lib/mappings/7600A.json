@@ -144,12 +144,6 @@
     "value": null
   },
   {
-    "name": "RESET FORM",
-    "options": null,
-    "type": "Button",
-    "value": null
-  },
-  {
     "name": "GT&amp;C #",
     "attribute_name": "gt_and_c_number",
     "options": null,

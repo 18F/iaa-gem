@@ -30,6 +30,18 @@ module IAA
       @fill_values = {}
       load_fields_from_pdf!(pdf_path, @pdftk, self)
       @pdf_path = pdf_path || self.class.default_pdf_path
+      
+      @fields.each do |field|
+        self.class.send(:define_method, field['attribute_name']) do
+          get_attr(field['name'])
+        end
+      end
+      
+      @fields.each do |field|
+        self.class.send(:define_method, "#{field['attribute_name']}=") do |argument|
+          set_attr(field['name'], argument)
+        end
+      end
     end
 
     def read_fields
