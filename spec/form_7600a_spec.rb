@@ -7,36 +7,18 @@ describe IAA::Form7600A do
   end
 
   it 'has getters' do
-    form = IAA::Form7600A.new
-
-    fields = JSON.parse(File.read('lib/mappings/7600A.json'))
-    method_names = fields.map {|f| f["attribute_name"]}.reject(&:nil?)
-
-    method_names.each do |method_name|
-      expect(form).to(respond_to(method_name))
-    end
+    has_getters(IAA::Form7600A)
   end
 
   it 'has setters' do
-    form = IAA::Form7600A.new
-
-    fields = JSON.parse(File.read('lib/mappings/7600A.json'))
-    method_names = fields.map {|f| f["attribute_name"]}.reject(&:nil?)
-
-    method_names.each do |method_name|
-      expect(form).to(respond_to("#{method_name}="))
-    end
+    has_setters(IAA::Form7600A)
+  end
+  
+  it 'fills a full 7600A form' do
+    fills_a_full_form(IAA::Form7600A)
   end
 
   it 'saves' do
-    form = IAA::Form7600A.new
-    start_date = "66-66-6666"
-    form.start_date = start_date
-    file_path = form.save('spec/output')
-
-    opened_form = IAA::Form7600A.new(pdf_path: file_path)
-    expect(opened_form.start_date).to(eq(start_date))
-
-    File.delete(file_path)
+    saves(IAA::Form7600A, {"start_date" => "66-66-6666"})
   end
 end
