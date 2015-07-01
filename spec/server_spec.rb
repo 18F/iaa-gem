@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'tempfile'
 
 describe IAA::Server do
   context "POST '/7600a'" do
@@ -57,7 +58,15 @@ describe IAA::Server do
 
     it "fills a full 7600a form" do
       post_json "/7600a", form_7600a_params.to_json
-      binding.pry
+      expect(last_response.status).to(eq(200))
+      expect(last_response.headers["Content-Type"]).to(eq("application/pdf"))
+      file = Tempfile.new('test.pdf')
+      file.write(last_response.body)
+      new_pdf = IAA::Form7600A.new(pdf_path: file.path)      
+      form_7600a_params.each_pair do |key, value|
+        got = new_pdf.send(key)
+        expect(got).to(eq(value), "Expected #{value}, got #{got}")
+      end
     end
   end
 end
