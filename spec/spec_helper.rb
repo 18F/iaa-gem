@@ -1,5 +1,29 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'iaa'
+require 'sinatra'
+require 'sinatra/base'
+require 'rack/test'
+require 'pry'
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.hook_into :webmock
+end
+
+def post_json(uri, json)
+  post(uri, json, { "CONTENT_TYPE" => "application/json" })
+end
+ 
+def app
+  IAA::Server
+end
+ 
+RSpec.configure do |config|
+  config.tty = true
+  config.include Rack::Test::Methods
+  config.extend VCR::RSpec::Macros
+end
 
 ALPHABET = %w[a b c d e f g h i j k l m n o p q r s t u v w x y z]
 
