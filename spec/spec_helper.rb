@@ -4,12 +4,6 @@ require 'sinatra'
 require 'sinatra/base'
 require 'rack/test'
 require 'pry'
-require 'vcr'
-
-VCR.configure do |c|
-  c.cassette_library_dir = 'fixtures/vcr_cassettes'
-  c.hook_into :webmock
-end
 
 def post_json(uri, json)
   post(uri, json, { "CONTENT_TYPE" => "application/json" })
