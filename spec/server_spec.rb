@@ -57,12 +57,21 @@ describe IAA::Server do
     end
 
     it "fills a full 7600a form" do
+      # Post the json to the endpoint.
+      # Now `last_response` is available to us, magically.
       post_json "/7600a", form_7600a_params.to_json
+      
+      # Make sure everything is mostly OK
       expect(last_response.status).to(eq(200))
-      expect(last_response.headers["Content-Type"]).to(eq("application/pdf"))
+      
+      # Stick the response bytes into a tempfile
       file = Tempfile.new('test.pdf')
       file.write(last_response.body)
-      new_pdf = IAA::Form7600A.new(pdf_path: file.path)      
+      
+      # Read the tempfile
+      new_pdf = IAA::Form7600A.new(pdf_path: file.path)
+      
+      # Ensure each attribute matches the original json
       form_7600a_params.each_pair do |key, value|
         got = new_pdf.send(key)
         expect(got).to(eq(value), "Expected #{value}, got #{got}")
