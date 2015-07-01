@@ -6,6 +6,7 @@ require 'pry'
 require 'base_form'
 require 'form_7600a'
 require 'form_7600b'
+require 'server'
 
 module IAA
   module Util
