@@ -78,6 +78,44 @@ You could also use these JSON files to create IAA form fillers in other language
 
 The PDFs in `lib/pdfs` have been modified somewhat from their originals. Visually, nothing has changed, but a few of the underlying form field names have been changed. For example, one field, "GT & C #" caused a lot of trouble because of that pesky ampersand. So, the field value in the PDF was changed to "gt_and_c_number".
 
+### API Server
+
+This gem includes an API server! It's just a small, mountable Sinatra application.
+
+To set up, just mount the server inside of a Rails app, for example--or just run it standalone:
+
+Create a `Gemfile`:
+
+```ruby
+source 'https://rubygems.org'
+
+gem 'iaa'
+gem 'thin'
+```
+
+Run `bundle`.
+
+Create a `config.ru`:
+
+```ruby
+require 'bundler/setup'
+require 'iaa'
+
+run Rack::URLMap.new(
+  '/iaa' => IAA::Server
+)
+```
+
+And run with:
+
+```sh
+$ bundle exec thin start
+```
+
+#### POST /7600a
+
+POST some JSON of keys and values that match the attributes in `lib/mappings/7600a.json` and get back a PDF response.
+
 ## Docker Compose Usage
 
 1. Make sure that [Docker Compose](https://docs.docker.com/compose/install/) is installed.
