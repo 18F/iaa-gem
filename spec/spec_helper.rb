@@ -53,13 +53,34 @@ end
 def fills_a_full_form(form_class)
   form_name = form_class.form_name
   fields = JSON.parse(File.read("lib/mappings/#{form_name}.json"))
-  fields.each do |field|
+  
+  test_values = fields.map do |field|
+    value = nil
     if field["type"] == "Text"
-      writes_and_reads_field(form_class, field['attribute_name'], ALPHABET.sample)
+      value = ALPHABET.sample
     end
+    
     if field["type"] == "Button"
-      writes_and_reads_field(form_class, field['attribute_name'], field['options'].sample)
+      value = field["options"].sample
     end
+    
+    {
+      "test_value" => value
+    }.merge(field)
+  end
+  
+  form = form_class.new
+  test_values.each do |field|
+    form.set_attr(field['name'], field['test_value'])
+  end
+  
+  filepath = form.save('spec/output')
+  
+  opened_form = form_class.new(pdf_path: filepath)
+  
+  test_values.each do |field|
+    got = opened_form.send(field['name'])
+    expect(got).to(eq(field['test_value']), "Expected #{field['name']} to be #{field['test_value']}, got #{got}")
   end
 end
 

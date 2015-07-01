@@ -132,7 +132,7 @@
   },
   {
     "name": "Cumulative Funding Changes3",
-    "attribute_name": "cumulative_funding_changes1",
+    "attribute_name": "cumulative_funding_changes3",
     "type": "Text",
     "value": null,
     "options": null
@@ -202,7 +202,7 @@
   },
   {
     "name": "Total Modified Obligation3",
-    "attribute_name": "total_modified_obligation2",
+    "attribute_name": "total_modified_obligation3",
     "type": "Text",
     "value": null,
     "options": null
@@ -1247,7 +1247,7 @@
   },
   {
     "name": "Additional POC Requesting Agency Name1",
-    "attribute_name": "additional_point_of_contact_requesting_agency_name2",
+    "attribute_name": "additional_point_of_contact_requesting_agency_name1",
     "type": "Text",
     "value": null,
     "options": null
