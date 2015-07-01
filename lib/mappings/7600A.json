@@ -22,7 +22,7 @@
   },
   {
     "name": "Name Requesting Agency of Products/Services",
-    "attribute_name": "requesting_agency_name",
+    "attribute_name": "requesting_agency_name_of_products_services",
     "options": null,
     "type": "Text",
     "value": null
@@ -36,7 +36,7 @@
   },
   {
     "name": "Name Servicing Agency Providing Products/Services",
-    "attribute_name": "servicing_agency_name",
+    "attribute_name": "servicing_agency_name_products_services",
     "options": null,
     "type": "Text",
     "value": "U.S. General Services Administration / Office of Citizen Services &amp; Innovative Technologies / 18F"
