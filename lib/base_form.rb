@@ -9,8 +9,13 @@ module IAA
       PdfForms.new(pdftk_path || Cliver.detect('pdftk'))
     end
     
+    def get_full_path(path)
+      File.expand_path(File.join('..', '..', path), __FILE__)
+    end
+    
     def get_mapper_fields(path)
-      full_path = File.expand_path(File.join('..', '..', path), __FILE__)
+      #full_path = File.expand_path(File.join('..', '..', path), __FILE__)
+      full_path = get_full_path(path)
       JSON.parse(File.read(full_path))
     end
 
@@ -29,7 +34,7 @@ module IAA
       @save_filename = nil
       @fill_values = {}
       load_fields_from_pdf!(pdf_path, @pdftk, self)
-      @pdf_path = pdf_path || self.class.default_pdf_path
+      @pdf_path = get_full_path(pdf_path || self.class.default_pdf_path)
       
       @fields.each do |field|
         self.class.send(:define_method, field['attribute_name']) do
