@@ -70,17 +70,18 @@ def fills_a_full_form(form_class)
   end
   
   form = form_class.new
+
   test_values.each do |field|
-    form.set_attr(field['name'], field['test_value'])
+    #form.set_attr(field['name'], field['test_value'])
+    form.send("#{field['attribute_name']}=", field['test_value'])
   end
   
-  filepath = form.save('spec/output')
-  
+  filepath = form.save('spec/output')  
   opened_form = form_class.new(pdf_path: filepath)
   
   test_values.each do |field|
-    got = opened_form.send(field['name'])
-    expect(got).to(eq(field['test_value']), "Expected #{field['name']} to be #{field['test_value']}, got #{got}")
+    got = opened_form.send(field['attribute_name'])
+    expect(got).to(eq(field['test_value']), "Expected #{field['attribute_name']} to be #{field['test_value']}, got #{got}")
   end
 end
 
