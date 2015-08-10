@@ -4,6 +4,11 @@ require 'tempfile'
 
 module IAA
   class Server < Sinatra::Base
+    # keep Meteor happy by responding to OPTIONS request
+    options '/7600a' do
+      halt 200
+    end
+    
     post '/7600a' do
       # Get the params
       json_params = JSON.parse(request.body.read)
