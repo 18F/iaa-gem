@@ -77,6 +77,11 @@ describe IAA::Server do
         expect(got).to(eq(value), "Expected #{value}, got #{got}")
       end
     end
+    
+    it "responds to OPTIONS requests" do
+      options "/7600a"
+      expect(last_response.status).to(eq(200))
+    end
   end
 end
 
