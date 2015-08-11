@@ -82,6 +82,15 @@ describe IAA::Server do
       options "/7600a"
       expect(last_response.status).to(eq(200))
     end
+    
+    it "returns errors as json" do
+      # no params here will throw an error
+      post "/7600a"       
+      expected_error = {"error"=>"A JSON text must at least contain two octets!"}
+      parsed_response = JSON.parse(last_response.body)
+      
+      expect(parsed_response).to(eq(expected_error))
+    end
   end
 end
 

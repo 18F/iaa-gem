@@ -10,30 +10,39 @@ module IAA
     end
     
     post '/7600a' do
-      # Get the params
-      json_params = JSON.parse(request.body.read)
+      begin
+        # Get the params
+        json_params = JSON.parse(request.body.read)
       
-      # Create and fill the form
-      form = IAA::Form7600A.new
-      json_params.each_pair do |key, value|
-        form.send("#{key}=", value)
-      end
+        # Create and fill the form
+        form = IAA::Form7600A.new
+        json_params.each_pair do |key, value|
+          form.send("#{key}=", value)
+        end
       
-      # Save the form
-      file = form.save
+        # Save the form
+        file = form.save
       
-      # Get the bytes
-      bytes = File.read(file) 
+        # Get the bytes
+        bytes = File.read(file) 
       
-      # Delete the file
-      File.delete(file)
+        # Delete the file
+        File.delete(file)
           
-      # Put the bytes in a tempfile 
-      tmpfile = Tempfile.new('response.pdf')
-      tmpfile.write(bytes)
+        # Put the bytes in a tempfile 
+        tmpfile = Tempfile.new('response.pdf')
+        tmpfile.write(bytes)
       
-      # Let the user download the file
-      send_file(tmpfile)
+        # Let the user download the file
+        send_file(tmpfile)
+      rescue => e
+        content_type :json
+        
+        return {
+          error: e.to_s
+        }.to_json
+      end
     end
+
   end
 end
