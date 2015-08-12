@@ -55,8 +55,32 @@ describe IAA::Server do
         "servicing_agency_approval_date"=>"07-30-2015"
       }
     end
+    
 
-    it "fills a full 7600a form" do
+    it "fills a full 7600a form from a GET request" do
+      # Post the json to the endpoint.
+      # Now `last_response` is available to us, magically.
+      
+      get "/7600a?#{URI.encode_www_form(form_7600a_params)}"
+
+      # Make sure everything is mostly OK
+      expect(last_response.status).to(eq(200))
+
+      # Stick the response bytes into a tempfile
+      file = Tempfile.new('test.pdf')
+      file.write(last_response.body)
+
+      # Read the tempfile
+      new_pdf = IAA::Form7600A.new(pdf_path: file.path)
+
+      # Ensure each attribute matches the original json
+      form_7600a_params.each_pair do |key, value|
+        got = new_pdf.send(key)
+        expect(got).to(eq(value), "Expected #{value}, got #{got}")
+      end
+    end    
+
+    it "fills a full 7600a form from a POST request" do
       # Post the json to the endpoint.
       # Now `last_response` is available to us, magically.
       post_json "/7600a", form_7600a_params.to_json
