@@ -250,14 +250,14 @@
   },
   {
     "name": "17  Assisted Acquisition Agreements  Requesting Agencys Organizations Authorized To Request Acquisition Assistance for this IAA State or attach a list of Requesting Agencys organizations authorized to request acquisition assistance for this IAA",
-    "attribute_name": "requesting_agency_organiations_authorized",
+    "attribute_name": "requesting_agency_organizations_authorized",
     "options": null,
     "type": "Text",
     "value": null
   },
   {
     "name": "18  Assisted Acquisition Agreements  Servicing Agencys Organizations authorized to Provide Acquisition Assistance for this IAA State or attach a list of Servicing Agencys organizations authorized to provide acquisition for this IAA",
-    "attribute_name": "servicing_agency_organiations",
+    "attribute_name": "servicing_agency_organizations",
     "options": null,
     "type": "Text",
     "value": null
